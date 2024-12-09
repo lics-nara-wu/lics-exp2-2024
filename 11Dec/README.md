@@ -95,7 +95,7 @@ pip3 install unidic-lite
 ライセンスの関係で前処理済みのデータの再配布ができないので、公開されているデータのコピーに対して皆さんのお手元で前処理を実行して利用する必要があります。
 
 ### 4.1 前処理スクリプトの作成
-まず、[前処理用のPythonスクリプト](https://github.com/ksudoh/lics-exp2-2024/blob/main/11Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
+まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
 以下のいずれかの方法で行ってみてください。
 - GitHubの画面を見ながら写経する
 - GitHubの画面で Copy raw file のボタンをクリックしてクリップボードにコピーし、何かのエディタで開いて貼り付ける
