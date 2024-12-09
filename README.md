@@ -4,10 +4,10 @@
 各回に対応するREADMEファイルを分けています。
 
 ## 第10回 2024-12-11
-[第10回の内容](https://github.com/ksudoh/lics-exp2-2024/blob/main/11Dec/README.md)
+[第10回の内容](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/README.md)
 
 ## 第11回 2024-12-18
-[第11回の内容](https://github.com/ksudoh/lics-exp2-2024/blob/main/18Dec/README.md)
+[第11回の内容](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/18Dec/README.md)
 
 ## 第12回 2024-12-25
-[第12回の内容](https://github.com/ksudoh/lics-exp2-2024/blob/main/25Dec/README.md)
+[第12回の内容](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/README.md)
