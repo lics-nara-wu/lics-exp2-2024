@@ -17,10 +17,10 @@ parser = ArgumentParser()
 args = parser.parse_args()
 
 
-with open(args.input, 'r') as rh:
+with open(args._, 'r') as rh: ##### add_argumentでつけた名前
     DATASET = json.load(rh)
 
-with open(args.model, 'rb') as rh:
+with open(args._, 'rb') as rh: ##### add_argumentでつけた名前
     model_pipeline = pickle.load(rh)
 
 def extract_wrime2 (dataset, key='test'):
