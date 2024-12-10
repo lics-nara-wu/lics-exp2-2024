@@ -16,8 +16,7 @@
   - 自主的に他の言語で実装することは妨げません（須藤がフォローできるかどうかは分かりませんが...）
   - ただし、データの前処理に係る部分はできるだけ提供している Python スクリプトを利用してください
 
-※ このPythonはバージョンが古いので、Pythonの最近の機能やライブラリがいろいろ使えません。
-　この環境で動くような仕組みで説明しますので、今どきの環境ではそのまま動かないかもしれませんがご容赦ください。
+※ このPythonはバージョンが古いので、Pythonの最近の機能やライブラリがいろいろ使えません。この環境で動くような仕組みで説明しますので、今どきの環境ではそのまま動かないかもしれませんがご容赦ください。
 
 ## Pythonのリファレンス
 - [Python 3.6ドキュメント](https://docs.python.org/ja/3.6/)
@@ -123,6 +122,9 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py -t ${EXPDIR}/data/wrime_v2_se
 
 実行の結果、`${EXPDIR}/data/wrime_v2_sentiment.tok.json` というファイルが生成されるはずです。
 
+この前処理スクリプトでは、必要のないデータを捨て、文と、その文を書いた人の感情極性を表す数値 (2, 1, 0, -1, -2) のみを残すようにしています。
+
+### 4.4 分かち書きを行わないデータの作成
 また、比較のため分かち書きを行っていない形式のファイルも作成しておきます。
 （余力のある人はこのデータを使った実験にもトライしてみてください）
 ```
@@ -130,6 +132,9 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 ```
 
 ## 5. 文書分類の学習用・推論用プログラムの作成
+今回の課題は、WRIME ver.2 のデータを用い、文の極性判定をする分類モデルを作成し、評価することです。
+
+
 ### 5.1 学習用プログラムの作成
 前処理をしたJSON形式のデータを入力とし、学習した文書分類モデルを出力するプログラムを作成してください。
 - 入力データファイル名の指定
@@ -139,6 +144,7 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 - scikit-learnのデータ形式への変換
 - モデルの学習
 - モデルの保存
+
 [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-train.py)を用意していますので参考にしてください。
 
 
@@ -151,6 +157,7 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 - scikit-learnのデータ形式への変換
 - 分類結果の推論
 - 分類結果の出力
+
 [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-test.py)を用意していますので参考にしてください。
 
 ## 6. 分類結果の評価用プログラムの作成
@@ -160,6 +167,7 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 - 入力データ・入力分類結果の読み込み
 - 評価値の計算
 - 評価値の出力
+
 [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-evaluate.py)を用意していますので参考にしてください。
 
 
@@ -167,6 +175,35 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 LMSの「課題（第10回、自然言語処理1）」のところに
 - 作成したプログラム
 - プログラムの使い方（どのプログラムにどのような引数／オプションを与えて実行するかを最低限記載）を書いたテキストファイル
+
+[!IMPORTANT]
 提出期限は **2024-12-18 (水) 23:59 (日本標準時)** です。
+提出期限後の提出も受け付けますが、減点対象です。
 
 ## 8. 発展（時間がある人はチャレンジしてみてください）
+### 8.1 特徴量抽出の設定変更
+今回テンプレートで利用している特徴量抽出で利用している `CountVectorizer` にはいくつかオプションで振る舞いを変更できます。例えば
+- 単語一個一個だけでなく、連続する単語（二個組とか三個組とか）を特徴量とする (`ngram_range`)
+- 一文の中でのある単語の個数を特徴量とするのではなく、ある単語があるかないかの二値の特徴量とする (`binary`)
+- 学習データの中であまり出現回数が小さい特徴量を利用しないようにする (`min_df`)
+
+などが使えます。余裕があればこれらを変更するとどう性能が変わるか、検証してみてください。
+
+参考：[ドキュメント](https://scikit-learn.org/0.24/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer)
+
+### 8.2 単語区切りから文字区切りへの変更
+今回は事前に分かち書きされた日本語文を使っていますが、単語での分かち書きをせずに文字の単位で処理することもできます。
+
+[4.4 分かち書きを行わないデータの作成](#4.4-分かち書きを行わないデータの作成)で作成したデータを用い、
+`CountVectorizer`に渡す文（テンプレートでは `model_pipeline` に渡す X_*_str）を、
+すべての文字の間に空白を入れたものにすれば文字単位で特徴量が作成されます。
+
+### 8.3 LinearSVCの学習設定の変更
+今回文の分類に使っている LinearSVC にはいろいろな設定項目があります。例えば
+- 正則化パラメータ：`C`が大きいほど正則化が弱く（過学習を避けるが、学習データでの正解率が下がる）、`C`が小さいほど正則化が強い（学習データでの正解率が上がるが、過学習しやすい）
+- 学習の繰り返し回数：最大 `max_iter` 回の繰り返し計算を行う
+- データ不均衡の調整：`class_weight`の指定により分類されるクラス毎のデータ量の偏りを補正する
+
+参考：[ドキュメント](https://scikit-learn.org/0.24/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC)
+
+### 8.4 自分で入力した文に対する
