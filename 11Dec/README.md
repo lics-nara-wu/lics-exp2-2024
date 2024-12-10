@@ -134,11 +134,13 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 前処理をしたJSON形式のデータを入力とし、学習した文書分類モデルを出力するプログラムを作成してください。
 - 入力データファイル名の指定
 - 出力モデルファイル名の指定
-- 入力データの読み込み
+- 入力データの読み込み（今回のポイント）
 - 入力特徴量の抽出
 - scikit-learnのデータ形式への変換
 - モデルの学習
 - モデルの保存
+[プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-train.py)を用意していますので参考にしてください。
+
 
 ### 5.2 推論用プログラムの作成
 前処理をしたJSON形式のデータと、学習済みの文書分類モデルを入力とし、文書分類の結果を出力するプログラムを作成してください。
@@ -148,7 +150,8 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 - 入力特徴量の抽出
 - scikit-learnのデータ形式への変換
 - 分類結果の推論
-- 分類結果の保存
+- 分類結果の出力
+[プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-test.py)を用意していますので参考にしてください。
 
 ## 6. 分類結果の評価用プログラムの作成
 前処理をしたJSON形式のデータと、文書分類の結果を入力とし、文書分類の精度を評価して出力するプログラムを作成してください。
@@ -156,8 +159,14 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py ${EXPDIR}/data/wrime_v2_senti
 - 入力分類結果ファイル名の指定
 - 入力データ・入力分類結果の読み込み
 - 評価値の計算
-- 評価値の出力表示
+- 評価値の出力
+[プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-evaluate.py)を用意していますので参考にしてください。
 
 
 ## 7. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
+LMSの「課題（第10回、自然言語処理1）」のところに
+- 作成したプログラム
+- プログラムの使い方（どのプログラムにどのような引数／オプションを与えて実行するかを最低限記載）を書いたテキストファイル
+提出期限は **2024-12-18 (水) 23:59 (日本標準時)** です。
 
+## 8. 発展（時間がある人はチャレンジしてみてください）
