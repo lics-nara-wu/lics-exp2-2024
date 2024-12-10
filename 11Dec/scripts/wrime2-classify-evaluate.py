@@ -12,16 +12,18 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
-parser.add_argument("-m", "--model", type=str, metavar="MODEL", required=True, help="Output model file")
-parser.add_argument("input", type=str, metavar="FILE", help="Input file")
+##### parser.add_argument でWRIME2のデータと予測結果のファイルをそれぞれ指定
 args = parser.parse_args()
 
 
-with open(args.input, 'r') as rh:
+with open(args._, 'r') as rh: ##### add_argumentでつけた名前
     DATASET = json.load(rh)
 
-with open(args.model, 'rb') as rh:
-    model_pipeline = pickle.load(rh)
+y_predict = []
+with open(args._, 'r') as rh: ##### add_argumentでつけた名前
+    for line in rh:
+        ##### 出力された予測ラベルを y_predict に格納する
+        ##### ファイルに出力されたラベルは文字列型になっているので、int()で整数型に変換して格納すること
 
 def extract_wrime2 (dataset, key='test'):
     _X_str = []
@@ -30,21 +32,11 @@ def extract_wrime2 (dataset, key='test'):
     if key not in dataset:
         raise RuntimeError ("ERROR: {key} is not found in the dataset.")
     else:
-        # for data in tqdm(dataset[key]):
-        #     _X_str.append (data["Sentence"].rstrip())
-        #     if data["Writer_Sentiment"] > 0: _y.append(1)
-        #     elif data["Writer_Sentiment"] < 0: _y.append(-1)
-        #     else: _y.append(0)
-        # print (f"Dataset {key} has been extracted.", file=sys.stderr)
+        ##### 学習用プログラムと同じ
 
         return _X_str, _y
 
 
-# X_test_str, y_test = extract_wrime2(DATASET)
-# y_predict = model_pipeline.predict(X_test_str)
-
-# test_accuracy = accuracy_score(y_test, y_predict)
-# print (f"Test accuracy: {100*test_accuracy:.3g} %")
-
-# test_confusion_matrix = confusion_matrix(y_test, y_predict, labels=[-1, 0, 1])
-# print (test_confusion_matrix)
+X_str_test, y_test = extract_wrime2(DATASET)
+test_accuracy = accuracy_score(y_test, y_predict)
+print (f"Test accuracy: {100*test_accuracy:.3g} %")
