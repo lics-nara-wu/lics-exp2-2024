@@ -25,6 +25,11 @@
 - [Python 3.6標準ライブラリリファレンス](https://docs.python.org/ja/3.6/library/index.html)
 - [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2024/edit/main/README_python.md)
 
+> [!TIP]
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+>
+> 質問等で共有が必要になったときには随時更新します。
+
 ## 当日の実験の流れ
 以下のような流れで進めます。自分で分かるという人はどんどん先に進めていただいてかまいません。
 
