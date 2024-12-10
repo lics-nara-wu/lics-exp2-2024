@@ -30,7 +30,7 @@ def extract_wrime2 (dataset, key='test'):
     if key not in dataset:
         raise RuntimeError ("ERROR: {key} is not found in the dataset.")
     else:
-        ##### 学習プログラムと同じ
+        ##### 学習プログラムの extract_wrime2 と同じにする
 
         return _X_str, _y
 
