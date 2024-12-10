@@ -119,6 +119,14 @@ pip3 install unidic-lite
 今回の実験で利用する文書分類用のデータとして[WRIME: 主観と客観の感情分析データセット](https://github.com/ids-cv/wrime)を利用します。
 ライセンスの関係で前処理済みのデータの再配布ができないので、公開されているデータのコピーに対して皆さんのお手元で前処理を実行して利用する必要があります。
 
+> [!WARNING]
+> WRIMEのデータは Creative Commons の BY-NC-ND (表示-非営利-改変禁止) というライセンスで公開されているので（詳細は [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)）、
+> - 適切なクレジットの表示
+> - 営利目的での利用禁止
+> - 改変禁止（改変等、これをもとにした派生物の頒布の禁止）
+>
+> を遵守する必要があります。したがって、前処理済みのデータや、学習したモデルを配布することができません。
+
 ### 4.1 前処理スクリプトの作成
 まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
 以下のいずれかの方法で行ってみてください。
