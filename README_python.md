@@ -18,3 +18,16 @@ args = parser.parse_args()
 - `args.file`は実行時のコマンドラインオプションで`-f name.txt`もしくは`--file name.txt`を指定した場合には`name.txt`が入る。
 - `args.model`は実行時のコマンドラインオプションで`-m name.model`もしくは`--model name.model`を指定した場合には`name.model`が入る。指定がない場合にはエラーを返す (`required=True`の効果)。
 - `args.input`は実行時の引数で`name.txt`を指定した場合に`name.txt`が入る。指定がない場合にはエラーを返す。
+
+例えば、上記の設定をしたプログラムであれば
+```
+python3 foo.py -d -f file1 -m file2 file3
+```
+を実行したとき
+```
+args.debug == True
+args.file == file1
+args.model == file2
+args.input == file3
+```
+というようになる。
