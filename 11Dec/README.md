@@ -156,6 +156,10 @@ unalias python3
 - 須藤のディレクトリにある `/export/home/ics/sudoh/Project/Exp2/2024/scripts/extract_wrime_v2_data.py` をコピーする
 
 このファイルは `${EXPDIR}/scripts/extract_wrime_v2_data.py` として保存します。
+```
+mkdir -p ${EXPDIR}/scripts
+cp /export/home/ics/sudoh/Project/Exp2/2024/scripts/extract_wrime_v2_data.py ${EXPDIR}/scripts/
+```
 
 ### 4.2 前処理済みデータ格納用ディレクトリの作成
 前処理済みのデータを格納するためのディレクトリを作成します。
