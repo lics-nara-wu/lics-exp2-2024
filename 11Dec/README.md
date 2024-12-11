@@ -164,6 +164,12 @@ mkdir -p ${EXPDIR}/data
 ```
 
 ### 4.3 前処理スクリプトの実行
+前処理スクリプトの実行の前に、言語環境をUTF-8にします。
+```
+export LC_ALL=ja_JP.utf8
+export LANG=ja_JP.utf8
+```
+
 以下のように前処理スクリプトを実行し、WRIME v2のデータの必要な箇所だけを抜き取り、JSON形式で格納したファイルを作成します。
 ```
 python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py -t ${EXPDIR}/data/wrime_v2_sentiment.tok.json
