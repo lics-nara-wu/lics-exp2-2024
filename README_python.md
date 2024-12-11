@@ -15,6 +15,15 @@ L.append(2)
 L == [1, 2]
 ```
 
+## ファイルの読み込み
+テキストファイルを一行ごとに読み込むときは、読み込んだ結果に改行文字 (`\n`) がついてしまっているので、`rstrip`で除去する。
+`rstrip`とは、文字列の右端にある指定した文字を取り去るためのメソッド。
+```
+with open(filename, 'r') as rh:
+    for line in rh:
+        line = line.rstrip("\n")
+```
+
 ## argparse.ArgumentParser
 コマンドライン引数・オプションを処理するためのライブラリ
 
