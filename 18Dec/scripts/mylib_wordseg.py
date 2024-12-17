@@ -75,9 +75,9 @@ def extract_features_from_labeled (line):
     for c in line: ### 1文字ずつ走査する
         ### 文字とラベルは交互に出現するので、labelflagを使って区別する
         if labelflag:
-            if c not in ["-", "|", " "]: ### ラベルのあるはずの位置に別の記号が来てしまっていた場合はデータエラーなのでこの文字列全体をスキップする
+            if c not in ["-", "|", " "]: ### ラベルのあるはずの位置に別の記号が来てしまっていた場合はデータエラーなのでこの後をスキップする
                 #print (f"WARNING: skipping invalid line including a wrong label \"{c}\":\n{line}", file=sys.stderr)
-                return [], []
+                return X_str_list, y_list
             label_list.append(c)
             labelflag = False
         else:
