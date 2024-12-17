@@ -66,10 +66,11 @@ pip3 install regex
 
 ## 4. 今回の実験用データの取得
 今回の実験のために用意したデータを取得します。
-このデータは [Wikipedia日本語版のダンプデータの2024年12月01日版](https://dumps.wikimedia.org/jawiki/20241201/) です。
+このデータは [Wikipedia日本語版のダンプデータの2024年12月01日版](https://dumps.wikimedia.org/jawiki/20241201/) をもとにしたものです。
+
 テキストを取り出し、形態素解析器 [MeCab](https://taku910.github.io/mecab/) の [python3版](https://pypi.org/project/mecab-python3/) を利用して前処理を行っています。
 > [!NOTE]
-> このデータは [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) でライセンスされています
+> このデータは [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) でライセンスされていますので、
 
 データのサイズがそこそこ大きいので、実際に全部コピーをするとディスク容量を浪費してしまいます。
 そのため、シンボリックリンク（ファイルの参照先情報を持った特殊なファイル）を作成します。
