@@ -36,7 +36,7 @@
 ## 1. 実験の目的と内容
 スライドを使って説明します。スライドはLMSで共有します。
 
-## 2. Pythonの環境設定の呼び出し
+## 2. Pythonの環境設定の呼び出しとライブラリの追加
 [第10回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/README.md)が終了しているものとして、それを呼び出します。
 ```
 EXPDIR=${HOME}/exp2_2024_nlp
@@ -46,6 +46,11 @@ source ${EXPDIR}/.venv/bin/activate
 `exp_2024_nlp` という仮想環境が有効になっていることを確認してください。
 ```
 (exp2_2024_nlp) [sudoh@remote01 exp2_2024_nlp]$
+```
+
+今回使うライブラリ `regex` をインストールします。
+```
+pip3 install regex
 ```
 
 ## 3. 課題の技術的説明
