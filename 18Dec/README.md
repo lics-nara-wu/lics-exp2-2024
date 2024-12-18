@@ -173,7 +173,7 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 ### 5.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-tiny.ja.tok.label
+python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-ｔrain-tiny.ja.tok.label
 ```
 無事完了したら `wordseg.model` というファイルができるはずです。
 
@@ -184,7 +184,7 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-t
 ### 5.4. 予測プログラムの実行
 分かち書き関数ができたら以下のプログラムを実行し、分かち書きができているか確認してみてください（精度面はあまり期待できないですが）。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-teste.ja | python3 wordseg-predict.py -m wordseg.model
+head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-test.ja | python3 wordseg-predict.py -m wordseg.model
 ```
 
 ## 6. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
