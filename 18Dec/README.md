@@ -173,7 +173,7 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 ### 5.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-ｔrain-tiny.ja.tok.label
+python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
 ```
 無事完了したら `wordseg.model` というファイルができるはずです。
 
