@@ -181,7 +181,7 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-t
 >もしこのモデルでうまく分割ができなかったら、もう少しデータ量の多い状態で学習させてみましょう。
 >`wordseg2.model`という別のモデルファイル名にしてみます。
 >```
-python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
+>python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
 >```
 
 ### 5.3. 分かち書きの実装
