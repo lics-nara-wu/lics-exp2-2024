@@ -182,7 +182,6 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-t
 >`wordseg2.model`という別のモデルファイル名にしてみます。
 >```
 python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
-```
 >```
 
 ### 5.3. 分かち書きの実装
