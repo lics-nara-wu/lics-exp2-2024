@@ -56,6 +56,13 @@ source ${EXPDIR}/.venv/bin/activate
 (exp2_2024_nlp) [sudoh@remote01 exp2_2024_nlp]$
 ```
 
+環境変数の設定をします。
+```
+export LANG=ja_JP.utf8
+export LC_ALL=ja_JP.utf8
+```
+また、合わせてターミナルの文字エンコーディングを Unicode > UTF-8 に変更します。
+
 今回使うライブラリ `regex` をインストールします。
 ```
 pip3 install regex
