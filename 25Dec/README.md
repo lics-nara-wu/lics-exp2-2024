@@ -149,6 +149,7 @@ head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-test.ja | python3 wordseg2-predic
 
 ### 4.4. 評価プログラムの実行
 その後、以下のプログラムを実行し、テストデータに対する分かち書きを行います。
+（あまり高速化の工夫を行っていないので、数分かかります）
 ```
 python3 wordseg2-predict.py -m wordseg2.model < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test.txt
 ```
