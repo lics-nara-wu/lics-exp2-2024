@@ -75,7 +75,7 @@ export LC_ALL=ja_JP.utf8
 cp mylib_wordseg.py mylib_wordseg2.py
 ```
 
-なお、実行するプログラムである以下の三つはテンプレート通りで変更不要です（前回から変更があるので名前も変えています）。
+なお、実行するプログラムである以下の三つはテンプレート通りでこれらのファイルについては内容変更不要です（前回から変更があるので名前も変えています）。
 - [`wordseg2-train.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/scripts/wordseg2-train.py): 学習プログラム
 - [`wordseg2-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/scripts/wordseg2-predict.py): 予測プログラム
 - [`wordseg2-evaluate.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/scripts/wordseg2-evaluate.py): 評価プログラム
