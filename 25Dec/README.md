@@ -84,6 +84,19 @@ cp mylib_wordseg.py mylib_wordseg2.py
 ### 4.1. 特徴量の抽出
 `mylib_wordseg2.py` の `extract_features` という関数を自分で編集し、有用そうな特徴量を追加してみてください。
 
+辞書情報を参照できるようにするため、`mylib_wordseg2.py` の冒頭が以下のようになるように pickle 関係の行を書き足してください。
+```
+import sys
+import regex as re
+
+import pickle
+
+with open('/export/home/ics/sudoh/Project/Exp2/2024/data/unidic.pkl', 'rb') as rh:
+    DICT = pickle.load(rh)
+
+##### 課題
+```
+
 #### 4.1.1. 組み合わせ特徴量
 『「私」と「は」』の間は切れやすい、という直観を特徴量として活用したいと考えたとき、前回は
 - 「私」という文字がすぐ左にある
