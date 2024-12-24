@@ -102,16 +102,9 @@ cp mylib_wordseg.py mylib_wordseg2.py
 ### 4.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
+python3 wordseg2-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
 ```
-無事完了したら `wordseg.model` というファイルができるはずです。
-
->[!NOTE]
->もしこのモデルでうまく分割ができなかったら、もう少しデータ量の多い状態で学習させてみましょう。
->`wordseg2.model`という別のモデルファイル名にしてみます。
->```
->python3 wordseg2-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
->```
+無事完了したら `wordseg2.model` というファイルができるはずです。
 
 ### 4.3. 予測プログラムの実行
 その後、以下のプログラムを実行し、分かち書きができているか確認してみてください。
@@ -130,7 +123,15 @@ python3 wordseg2-predict.py -m wordseg2.model < ${EXPDIR}/data/jawiki-20241201-p
 python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test.txt
 ```
 
-## 6. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
+### 4.5. 少し大きな学習データを使った実験
+時間があれば、少し大きな学習データである `jawiki-20241201-pages-train-small.ja.tok.label` を使ったモデルも作ってみてください。
+```
+python3 wordseg2-train.py -m wordseg2.model2 ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
+python3 wordseg2-predict.py -m wordseg2.model2 < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test2.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test2.txt
+```
+
+## 5. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
 LMSの「課題（第12回、自然言語処理2）」のところに以下を提出してください。
 - 作成したプログラム（`mylib_wordseg2.py`のみ）
 
@@ -141,5 +142,5 @@ LMSの「課題（第12回、自然言語処理2）」のところに以下を�
 
 ## 参考論文
 Graham Neubig, 中田 陽介, 森 信介,
-[点推定と能動学習を用いた自動単語分割器の分野適応](https://www.anlp.jp/proceedings/annual_meeting/2010/index.html)
+[点推定と能動学習を用いた自動単語分割器の分野適応（PDF）](https://www.anlp.jp/proceedings/annual_meeting/2010/pdf_dir/C4-3.pdf)
 言語処理学会第16回年次大会発表論文集 pp.912-915 (2010)
